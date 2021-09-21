@@ -20,7 +20,7 @@ function App() {
           <Route exact path="/" component={() => 
             <div>
               <h1>Homeeee</h1>
-              <Login/>
+              <h1>No funca </h1>
 
             </div>}
           />
