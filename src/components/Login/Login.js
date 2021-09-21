@@ -24,14 +24,14 @@ const Login = () => {
     return(
 
         <div className="Login">
-            <form action={handleSubmit}>
+            <form>
                 <label>Ingrese su correo</label>
                 <input value={email} onChange={(e)=> setEmail(e.target.value)} type="email"></input>
 
                 <label>Ingrese contraseña</label>
                 <input value={password} type="password" onChange={(e)=> setPassword(e.target.value)}></input>
 
-                <button type="submit">Ingresar</button>
+                <button type="submit" onClick={handleSubmit}>Ingresar</button>
 
             </form>            
                 <p>Datos {email}</p>
