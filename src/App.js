@@ -1,24 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { Horarios } from './components/Horarios';
+import HorarioState from './context/horarios/horarioState';
+import { Header } from './ui/Header';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <HorarioState>
+      <BrowserRouter>
+        <Header/>
+
+        <Switch>
+          <Route exact path="/" component={() => <div>Home</div>}/>
+          <Route exact path="/services" component={() => <div>Servicios</div>}/>
+          <Route exact path="/contact" component={() => <div>Contacto</div>}/>
+          <Route exact path="/schedules" component={() => <Horarios/> } />
+        </Switch>
+      </BrowserRouter>
+    </HorarioState>
   );
 }
 
