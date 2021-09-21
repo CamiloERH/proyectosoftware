@@ -4,7 +4,7 @@ import HorarioState from './context/horarios/horarioState';
 import { Header } from './ui/Header';
 
 import Servicios from './components/Servicios';
-import Login from './components/Login';
+import Login from './components/Login/Login';
 
 function App() {
   return (
