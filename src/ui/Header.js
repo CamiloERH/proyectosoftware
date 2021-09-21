@@ -34,9 +34,7 @@ export const Header = () => {
     const handleChange = (e, newValue) => {
         setValue(newValue);
     }
-
     
-
     return (
         <>
             <ElevationScroll >
@@ -64,25 +62,24 @@ export const Header = () => {
                                 label="Contacto"
                                 sx={tabStyle}
                             />
-                            <Button 
-                                component={Link} to="/schedules" 
-                                variant="contained" 
-                                color="warning"
-                                sx={{
-                                    borderRadius: "50px",
-                                    marginLeft: "50px",
-                                    marginRight: "25px",
-                                    height: "45px",
-                                    fontFamily: "Pacifico",
-                                    textTransform: "none",
-                                    fontSize: "1.2rem"
-                                }}
-                            >
-                                Agendar Hora
-                            </Button>
-
-                            
-                        </Tabs>    
+                        </Tabs>   
+                        <Button 
+                            component={Link} to="/schedules" 
+                            variant="contained" 
+                            color="warning"
+                            sx={{
+                                borderRadius: "50px",
+                                marginLeft: "25px",
+                                marginRight: "25px",
+                                height: "45px",
+                                fontFamily: "Pacifico",
+                                textTransform: "none",
+                                fontSize: "1.2rem"
+                            }}
+                        >
+                            Agendar Hora
+                        </Button>
+ 
                     </Toolbar>                  
                 </AppBar>
             </ElevationScroll>

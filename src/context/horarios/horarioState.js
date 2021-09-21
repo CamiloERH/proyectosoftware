@@ -10,24 +10,20 @@ const HorarioState = (props) => {
 
 
     const horasDummy = [{   
-        Servicio: 0,
-        Fecha: {dia: 20, mes: 'Noviembre', ano: 2021 },
-        Hora: '10:25',
-    },
-    {
-        Servicio: 0,
-        Fecha: {dia: 25, mes: 'Diciembre', ano: 2021 },
-        Hora: '10:25',
+        Servicio: 1,
+        Fecha: "2021-09-16T15:18:05.138Z"
     },
     {
         Servicio: 1,
-        Fecha: {dia: 25, mes: 'Septiembre', ano: 2021 },
-        Hora: '10:25',
+        Fecha: "2021-09-21T18:57:02.621+00:00"
     },
     {
-        Servicio: 1,
-        Fecha: {dia: 22, mes: 'Noviembre', ano: 2021 },
-        Hora: '10:25',
+        Servicio: 2,
+        Fecha: "2021-09-25T18:57:02.621+00:00"
+    },
+    {
+        Servicio: 2,
+        Fecha: "2021-09-22T18:57:02.621+00:00"
     }];
 
     const initialState = {
