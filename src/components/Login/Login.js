@@ -22,7 +22,6 @@ const Login = () => {
     const handleSubmitClick = (e) => {
         e.preventDefault();
         console.log("Listeke");
-        console.log(email);
        
     }
 
@@ -38,10 +37,10 @@ const Login = () => {
                 <label>Ingrese contraseña</label>
                 <input value={password} type="password" onChange={(e)=> setPassword(e.target.value)}></input>
 
-                <button type="submit" className="btn btn-primary" onClick={handleSubmitClick}>Ingresar</button>
+                <button type="submit" className="btn btn-primary" onClick={handleSubmitClick}>Ingresarr</button>
 
-            </form>            
-                
+            </form>      
+
             
         </div>
     )
