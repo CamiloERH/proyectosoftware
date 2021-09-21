@@ -22,13 +22,13 @@ const Login = () => {
 
     return(
 
-        <div className="Login">
+        <div className="card col-12 col-lg-4 login-card mt-2 hv-center">
             <form>
                 <label>Ingrese su correo</label>
-                <input value={email} onChange={(e)=> setEmail(e.target.value)} type="email"></input>
+                <input className="form-control" value={email} onChange={(e)=> setEmail(e.target.value)} type="email"></input>
 
                 <label>Ingrese contraseña</label>
-                <input value={password} type="password" onChange={(e)=> setPassword(e.target.value)}></input>
+                <input className="form-control" value={password} type="password" onChange={(e)=> setPassword(e.target.value)}></input>
 
                 <button type="submit" className="btn btn-primary" onClick={handleSubmitClick}>Ingresarr</button>
 
