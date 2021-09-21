@@ -21,7 +21,7 @@ function App() {
             <div>
               <h1>Homeeee</h1>
               <h1>No funca </h1>
-              <h1>HOla mundo </h1>
+              <h1>HOla mundo xd </h1>
               <Login/>
 
             </div>}
