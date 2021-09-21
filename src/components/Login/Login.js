@@ -11,14 +11,7 @@ const Login = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
-    function handleSubmit(event) {
-        console.log({
-          "mail":email,
-          "password":password
-        })
-        event.preventDefault();
-      }
-    
+        
     const handleSubmitClick = (e) => {
         e.preventDefault();
         console.log("Listeke");
