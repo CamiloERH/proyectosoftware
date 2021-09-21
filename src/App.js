@@ -19,7 +19,7 @@ function App() {
           <Route exact path="/" component={() => 
             <div>
               <h1>Homeeee</h1>
-              <Login/>
+              <p>Probando esto </p>
 
             </div>}
           />
