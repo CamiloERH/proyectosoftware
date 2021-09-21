@@ -18,20 +18,27 @@ const Login = () => {
         })
         event.preventDefault();
       }
+    
+    const handleSubmitClick = (e) => {
+        e.preventDefault();
+        console.log("Listeke");
+        console.log(email);
+       
+    }
 
 
 
     return(
 
         <div className="Login">
-            <form action={handleSubmit}>
+            <form>
                 <label>Ingrese su correo</label>
                 <input value={email} onChange={(e)=> setEmail(e.target.value)} type="email"></input>
 
                 <label>Ingrese contraseña</label>
                 <input value={password} type="password" onChange={(e)=> setPassword(e.target.value)}></input>
 
-                <button type="submit">Ingresar</button>
+                <button type="submit" className="btn btn-primary" onClick={handleSubmitClick}>Ingresar</button>
 
             </form>            
                 
