@@ -1,5 +1,6 @@
-import React, { useState, useContext } from 'react';
-import { Button, ButtonGroup, Container, Paper, List, Avatar, Grid, Item } from '@mui/material';
+import React, { useState, useContext, useEffect } from 'react';
+
+import { Button, ButtonGroup, Container, Paper, List, Grid } from '@mui/material';
 import { Horas } from './Horas';
 import HorarioContext from '../context/horarios/horarioContext';
 
@@ -7,9 +8,14 @@ export const Horarios = () => {
 
     const horarioContext  = useContext(HorarioContext);
 
-    const { horas:horasDummy } = horarioContext;
+    const { horas:horasDummy, obtenerHorarios } = horarioContext;
 
     const [servicio, setServicio] = useState(null);
+
+    useEffect(() => {
+        obtenerHorarios();
+        // eslint-disable-next-line
+    }, []);
 
     return (
         <>

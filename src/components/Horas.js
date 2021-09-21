@@ -1,6 +1,6 @@
 import { ListItem, ListItemText, Paper, Avatar, Button } from '@mui/material';
 import React from 'react';
-import { blue, deepOrange } from '@mui/material/colors';
+import { blue } from '@mui/material/colors';
 
 import SendIcon from '@mui/icons-material/Send';
 
