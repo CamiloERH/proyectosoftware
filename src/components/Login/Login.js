@@ -24,7 +24,7 @@ const Login = () => {
     return(
 
         <div className="Login">
-            <form action={handleSubmit} method="POST">
+            <form action={handleSubmit}>
                 <label>Ingrese su correo</label>
                 <input value={email} onChange={(e)=> setEmail(e.target.value)} type="email"></input>
 
