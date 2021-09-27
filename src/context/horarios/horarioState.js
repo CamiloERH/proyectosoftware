@@ -1,44 +1,55 @@
 import React, { useReducer } from 'react';
 
-import horarioReducer from './horarioReducer';
+import clienteAxios from '../../config/axios';
 
+import horarioReducer from './horarioReducer';
 import HorarioContext from './horarioContext';
 
-import { OBTENER_HORARIOS } from '../../types';
+import { AGENDAR_HORA, 
+    OBTENER_HORARIOS, 
+    OBTENER_SERVICIOS, 
+    SERVICIO_ACTUAL } from '../../types';
 
 const HorarioState = (props) => {
 
-
-    const horasDummy = [{   
-        Servicio: 1,
-        Fecha: "2021-09-16T15:18:05.138Z"
-    },
-    {
-        Servicio: 1,
-        Fecha: "2021-09-21T18:57:02.621+00:00"
-    },
-    {
-        Servicio: 2,
-        Fecha: "2021-09-25T18:57:02.621+00:00"
-    },
-    {
-        Servicio: 2,
-        Fecha: "2021-09-22T18:57:02.621+00:00"
-    }];
-
     const initialState = {
-        horas: []
+        servicioSeleccionado: null,
+        servicios: [],
+        horas: [],   
     }
 
     //Crear dispatch y state
     const [state, dispatch] = useReducer(horarioReducer, initialState);
 
+    //Funcion para obtener horarios a partir del servicio
+    const obtenerServicios = async () => {
+        const resultado = await clienteAxios.get(`/api/servicios`);
+        dispatch({
+            type: OBTENER_SERVICIOS,
+            payload: resultado.data.servicios
+        });
+    }
 
-    //Funcion para obtener horarios
-    const obtenerHorarios = () => {
+    const obtenerHorarios = async (idServicio) => {
+        const resultado = await clienteAxios.get(`/api/horas/${idServicio}`);
         dispatch({
             type: OBTENER_HORARIOS,
-            payload: horasDummy
+            payload: resultado.data.horas
+        });
+    }
+    
+    const agendarHora = async (idHora, idCliente) => {
+        await clienteAxios.post(`api/agenda`, {idHora, idCliente});
+        dispatch({
+            type: AGENDAR_HORA,
+            payload: idHora
+        });
+    }
+
+    const seleccionarServicio = (idServicio) => {
+        dispatch({
+            type: SERVICIO_ACTUAL,
+            payload: idServicio
         });
     }
 
@@ -46,7 +57,12 @@ const HorarioState = (props) => {
         <HorarioContext.Provider
             value={{
                 horas: state.horas,
-                obtenerHorarios
+                servicios: state.servicios,
+                servicioSeleccionado: state.servicioSeleccionado,
+                obtenerHorarios,
+                obtenerServicios, 
+                agendarHora,
+                seleccionarServicio
             }}
         >
             {props.children}

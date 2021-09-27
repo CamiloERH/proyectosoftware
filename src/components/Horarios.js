@@ -24,39 +24,58 @@ from '@mui/material';
 import HorarioContext from '../context/horarios/horarioContext';
 import { Horas } from './Horas';
 
-
-
 export const Horarios = () => {
-
 
     const horarioContext  = useContext(HorarioContext);
 
-    const { horas, obtenerHorarios } = horarioContext;
+    const { horas, 
+        servicioSeleccionado,
+        obtenerServicios, 
+        seleccionarServicio,
+        servicios, 
+        obtenerHorarios, 
+        agendarHora } = horarioContext;
 
     useEffect(() => {
-        obtenerHorarios();
-        // eslint-disable-next-line
+        obtenerServicios();
+        //eslint-disable-next-line  
     }, []);
 
     const [open, setOpen] = useState(false);
 
-    const handleClickOpen = () => {
+    const [form, setForm] = useState({
+        idHora: "",
+        idCliente: "614fcfb969e1ed415d389054"
+    });
+
+    const handleClickOpen = (idHora) => {
         setOpen(true);
+        setForm({
+            ...form,
+            idHora
+        });
     };
     
     const handleClose = () => {
-    setOpen(false);
+        setOpen(false);
+        setForm({
+            ...form,
+            idHora: null
+        });
     };
 
-    const [servicio, setServicio] = useState(1);
-
     const handleChange = (e) => {
-        setServicio(parseInt(e.target.value));
+        seleccionarServicio(e.target.value);
+        obtenerHorarios(e.target.value);
+    }
+
+    const handleSubmit = () => {
+        agendarHora(form.idHora, form.idCliente);
+        handleClose();
     }
 
     return (
         <>
-            
             <Grid 
                 container 
                 spacing={0} 
@@ -86,8 +105,6 @@ export const Horarios = () => {
                 }}
                 maxWidth="sm"
             >
-            
-
                 <Grid 
                     container 
                     spacing={0} 
@@ -101,29 +118,30 @@ export const Horarios = () => {
                             <RadioGroup
                                 aria-label="servicio"
                                 name="controlled-radio-buttons-group"
-                                value={servicio}
+                                value={servicioSeleccionado}
                                 onChange={handleChange}
                                 row
                             >
-                                <FormControlLabel value={1} control={<Radio />} label="Servicio 1" />
-                                <FormControlLabel value={2} control={<Radio />} label="Servicio 2" />
-                                <FormControlLabel value={3} control={<Radio />} label="Servicio 3" />
+                                {servicios.map((servicio) => (
+                                    <FormControlLabel 
+                                        key={servicio._id}
+                                        value={servicio._id} 
+                                        control={<Radio />} 
+                                        label={servicio.nombre} 
+                                    />
+                                ))}
                             </RadioGroup>
                             <FormLabel component="legend">Horas disponibles: </FormLabel>
                             <List>
                                 {
-                                    horas.map((hora, idx) => 
+                                    horas.map((hora) => 
                                         (
-                                            hora.Servicio === servicio 
-                                            ?  
                                             <Horas
-                                                key={idx}
-                                                servicio={hora.Servicio}
-                                                fecha={hora.Fecha}
-                                                handleClickOpen={handleClickOpen}
+                                                key={hora._id}
+                                                fecha={hora.fecha}
+                                                handleClickOpen={() => handleClickOpen(hora._id)}
                                             /> 
-                                            : null)
-                                    )
+                                    ))
                                 }
                             </List>
                         </FormControl>
@@ -145,7 +163,7 @@ export const Horarios = () => {
                             </DialogContent>
                             <DialogActions>
                                 <Button onClick={handleClose}>Cancelar</Button>
-                                <Button onClick={handleClose}>Agendar</Button>
+                                <Button onClick={() => {handleSubmit();}}>Agendar</Button>
                             </DialogActions>
                         </Dialog>
                     </Grid>
