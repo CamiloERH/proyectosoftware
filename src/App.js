@@ -4,7 +4,7 @@ import HorarioState from './context/horarios/horarioState';
 import { Header } from './ui/Header';
 
 import Servicios from './components/Servicios';
-import Login from './components/Login/Login';
+
 
 
 
@@ -21,7 +21,7 @@ function App() {
           <Route exact path="/" component={() => 
             <div className="container">
               <h1>Homeeee</h1>
-              <Login/>
+
 
             </div>}
           />
