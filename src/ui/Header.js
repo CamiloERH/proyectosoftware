@@ -62,6 +62,11 @@ export const Header = () => {
                                 label="Contacto"
                                 sx={tabStyle}
                             />
+                            <Tab 
+                                component={Link} to="/condiciones" 
+                                label="Condiciones"
+                                sx={tabStyle}
+                            />
                         </Tabs>   
                         <Button 
                             component={Link} to="/schedules" 
