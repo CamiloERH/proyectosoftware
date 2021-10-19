@@ -17,7 +17,7 @@ function App() {
         <Switch>
           <Route exact path="/" component={() => 
             <div className="container">
-              <h1>Homeeee</h1>
+              <p>Bienvenidos</p>
 
 
             </div>}
