@@ -37,7 +37,7 @@ function App() {
 
             </div>}
           />        
-                    
+          <Route exact path="/condiciones" component={Condiciones}/>         
           <Route exact path="/services" component={Servicios}/>
           <Route exact path="/contact" component={() => <div>Contacto</div>}/>
           <Route exact path="/schedules" component={() => <Horarios/> } />
