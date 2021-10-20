@@ -4,11 +4,19 @@ import HorarioState from './context/horarios/horarioState';
 import { Header } from './ui/Header';
 import Servicios from './components/Servicios';
 import Condiciones from './components/condiciones';
+import Login from './components/Login/Login';
+import Logout from './components/Login/Logout';
+import Profile from './components/Login/Profile/Profile';
 
 
 
 
 function App() {
+
+
+  const aers = false;
+
+
   return (
     <HorarioState>
       <BrowserRouter>
@@ -18,11 +26,13 @@ function App() {
           <Route exact path="/" component={() => 
             <div className="container">
               <p>Bienvenidos</p>
-
+              <Login/>
+              <Logout/>
+              <Profile/>
 
             </div>}
-          />
-          <Route exact path="/condiciones" component={Condiciones}/>
+          />        
+                    
           <Route exact path="/services" component={Servicios}/>
           <Route exact path="/contact" component={() => <div>Contacto</div>}/>
           <Route exact path="/schedules" component={() => <Horarios/> } />
