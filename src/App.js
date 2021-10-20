@@ -11,13 +11,18 @@ import Profile from './components/Login/Profile/Profile';
 
 
 
+
 function App() {
 
 
-  const aers = false;
+    
 
 
   return (
+
+
+  
+
     <HorarioState>
       <BrowserRouter>
         <Header/>
@@ -26,9 +31,9 @@ function App() {
           <Route exact path="/" component={() => 
             <div className="container">
               <p>Bienvenidos</p>
-              <Login/>
-              <Logout/>
-              <Profile/>
+
+              
+          
 
             </div>}
           />        
