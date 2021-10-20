@@ -4,9 +4,6 @@ import HorarioState from './context/horarios/horarioState';
 import { Header } from './ui/Header';
 import Servicios from './components/Servicios';
 import Condiciones from './components/condiciones';
-import Login from './components/Login/Login';
-import Logout from './components/Login/Logout';
-import Profile from './components/Login/Profile/Profile';
 
 
 
