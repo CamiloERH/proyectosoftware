@@ -1,0 +1,33 @@
+.containerServicios{
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+.image {
+    height: 250px;
+    width: 250px;
+    object-fit: cover;
+    }
+
+.botones {
+    display: flex;
+    justify-content: center;
+    margin: 6%;
+    background-color: orange;
+    border-radius: 10%;
+}
+
+.enlaces{
+    text-decoration: none;
+    color: white;
+}
+
+.enlaces :hover{
+    text-decoration: none;
+    color: white;
+}
+
+link : hover{
+    text-decoration: none;
+    color: white;
+}
