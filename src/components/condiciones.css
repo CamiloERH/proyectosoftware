@@ -1,0 +1,22 @@
+.titulo{
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+li{
+    margin-bottom: 2%;
+    
+}
+
+
+ol {
+    counter-reset: item;
+}
+ol li { display: block }
+
+ol li:before {
+    content: counter(item) ". ";
+    counter-increment: item;
+    font-weight: bold;
+    font-size: 18px;
+}
