@@ -6,7 +6,17 @@ import { Button } from '@mui/material';
 
 import { Link } from 'react-router-dom';
 
+import { useAuth0 } from '@auth0/auth0-react';
+import Profile from '../components/Login/Profile/Profile';
+import Logout from '../components/Login/Logout';
+import Login from '../components/Login/Login';
+
 function ElevationScroll(props) {
+
+
+    
+
+
     const { children } = props;
 
     const trigger = useScrollTrigger({
@@ -34,6 +44,7 @@ export const Header = () => {
     const handleChange = (e, newValue) => {
         setValue(newValue);
     }
+    const {isAuthenticated} = useAuth0();
     
     return (
         <>
@@ -68,6 +79,20 @@ export const Header = () => {
                                 sx={tabStyle}
                             />
                         </Tabs>   
+
+                        {isAuthenticated ? (
+                        <>
+                            <Profile/>
+                            <Logout/>
+                        </>
+                        ) : (
+                                <Login name="style"/>
+
+                            )}
+
+
+
+
                         <Button 
                             component={Link} to="/schedules" 
                             variant="contained" 

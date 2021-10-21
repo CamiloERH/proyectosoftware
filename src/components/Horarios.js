@@ -24,6 +24,12 @@ from '@mui/material';
 import HorarioContext from '../context/horarios/horarioContext';
 import { Horas } from './Horas';
 
+
+
+import { useAuth0 } from '@auth0/auth0-react';
+import Login from './Login/Login';
+
+
 export const Horarios = () => {
 
     const horarioContext  = useContext(HorarioContext);
@@ -74,8 +80,16 @@ export const Horarios = () => {
         handleClose();
     }
 
+
+
+    const {isAuthenticated} = useAuth0();
+
+
     return (
-        <>
+        <div>
+        {
+            isAuthenticated ? (
+                <>
             <Grid 
                 container 
                 spacing={0} 
@@ -171,5 +185,13 @@ export const Horarios = () => {
 
             </Container>
         </>
+                
+            ) : (
+                <Login/>
+            )
+        }
+
+        </div>
+        
     );
 }

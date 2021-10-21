@@ -8,8 +8,18 @@ import Condiciones from './components/condiciones';
 
 
 
+
 function App() {
+
+
+    
+
+
   return (
+
+
+  
+
     <HorarioState>
       <BrowserRouter>
         <Header/>
@@ -19,10 +29,12 @@ function App() {
             <div className="container">
               <p>Bienvenidos</p>
 
+              
+          
 
             </div>}
-          />
-          <Route exact path="/condiciones" component={Condiciones}/>
+          />        
+          <Route exact path="/condiciones" component={Condiciones}/>         
           <Route exact path="/services" component={Servicios}/>
           <Route exact path="/contact" component={() => <div>Contacto</div>}/>
           <Route exact path="/schedules" component={() => <Horarios/> } />

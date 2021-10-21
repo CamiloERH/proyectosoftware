@@ -1,17 +1,16 @@
-import "./Login.css";
 import React from "react";
+import { useAuth0 } from "@auth0/auth0-react";
 import { Button } from '@mui/material';
 
-import { useAuth0 } from "@auth0/auth0-react";
+const Logout = () => {
+  const { logout } = useAuth0();
 
+  return (
 
-const Login = (props) => {
-
-    const { loginWithRedirect } = useAuth0();
-    return <Button 
+    <Button 
     variant="contained" 
-    color="success"
-    onClick={() => loginWithRedirect()}
+    color="info"
+    onClick={() => logout({ returnTo: window.location.origin })}
     sx={{
         borderRadius: "50px",
         marginLeft: "25px",
@@ -22,10 +21,11 @@ const Login = (props) => {
         fontSize: "1.2rem"
     }}
 >
-    Login
+    Logout
     
-</Button>;
+</Button>
 
-}
+  );
+};
 
-export default Login;
+export default Logout;
