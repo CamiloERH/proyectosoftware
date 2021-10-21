@@ -187,7 +187,10 @@ export const Horarios = () => {
         </>
                 
             ) : (
-                <Login/>
+                <div className="container">
+                    <h1>Por favor inicie sesion o registrese</h1>
+                    <Login/>
+                    </div>
             )
         }
 
