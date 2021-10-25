@@ -179,6 +179,7 @@ export const Horarios = () => {
                                 5-Para el caso de la extensiones de pestañas, se tendra que estar 180 minutos aproximadamente con los ojos cerrados durante el procedimiento. También debe estar acostada en posición reclinada.                              
                             </DialogContentText>
                             <DialogContentText>
+                                    <Alert severity="warning">This is a warning alert — check it out!</Alert>
                                 Está por agendar la hora, confirme su número telefonico.                                
                             </DialogContentText>
 
