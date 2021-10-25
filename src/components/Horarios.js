@@ -164,15 +164,10 @@ export const Horarios = () => {
                             <DialogTitle>Agendar</DialogTitle>
                             <DialogContent>
                             <DialogContentText>
-                                Está por agendar la hora, confirme su número telefonico.
-                                Está por agendar la hora, confirme su número telefonico.
-                                Está por agendar la hora, confirme su número telefonico.
-                                Está por agendar la hora, confirme su número telefonico.
-                                Está por agendar la hora, confirme su número telefonico.
-                                Está por agendar la hora, confirme su número telefonico.
-                                Está por agendar la hora, confirme su número telefonico.
-                                Está por agendar la hora, confirme su número telefonico.
-                                
+                                Está por agendar la hora, confirme su número telefonico.                                
+                            </DialogContentText>
+                            <DialogContentText>
+                                Está por agendar la hora, confirme su número telefonico.                                
                             </DialogContentText>
                             <TextField
                                 autoFocus
