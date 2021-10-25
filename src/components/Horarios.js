@@ -164,23 +164,28 @@ export const Horarios = () => {
                             <DialogTitle>Agendar</DialogTitle>
                             <DialogContent>
                             <DialogContentText>
-                                1-Se agenda con un previo abono del 50% el cual no es reembolsable solo en caso de informar 48 horas antes que no podrá asistir.                             
+                            <Alert severity="info">1-Se agenda con un previo abono del 50% el cual no es reembolsable solo en caso de informar 48 horas antes que no podrá asistir. </Alert>
+                                
                             </DialogContentText>
                             <DialogContentText>
-                                2-Solo se aceptarán 5 minutos de retraso estando en la puerta (después de los 5 minutos la hora quedará inmediatamente cancelada sin derecho a reclamos).                          
+                                <Alert severity="info">2-Solo se aceptarán 5 minutos de retraso estando en la puerta (después de los 5 minutos la hora quedará inmediatamente cancelada sin derecho a reclamos).</Alert>
+                                
                             </DialogContentText>
                             <DialogContentText>
-                                3-Como parte del procedimiento puede llegar a existir irritación ocular, dolor ocular, comezón en los ojos, malestar, y en casos excepcionales infección ocular.                               
+                                    <Alert severity="info">3-Como parte del procedimiento puede llegar a existir irritación ocular, dolor ocular, comezón en los ojos, malestar, y en casos excepcionales infección ocular.</Alert>
+                                                               
                             </DialogContentText>
                             <DialogContentText>
-                                4-La persona que se realize el tratamiento debe ser mayor de edad, en caso contrario debe haber un padre o tutor que acepte todas las condiciones antes escritas.                             
+                                    <Alert severity="info">4-La persona que se realize el tratamiento debe ser mayor de edad, en caso contrario debe haber un padre o tutor que acepte todas las condiciones antes escritas.</Alert>
+                                
                             </DialogContentText>
                             <DialogContentText>
-                                5-Para el caso de la extensiones de pestañas, se tendra que estar 180 minutos aproximadamente con los ojos cerrados durante el procedimiento. También debe estar acostada en posición reclinada.                              
+                                    <Alert severity="info">5-Para el caso de la extensiones de pestañas, se tendra que estar 180 minutos aproximadamente con los ojos cerrados durante el procedimiento. También debe estar acostada en posición reclinada.</Alert>
+                                
                             </DialogContentText>
                             <DialogContentText>
-                                    <Alert severity="warning">This is a warning alert — check it out!</Alert>
-                                Está por agendar la hora, confirme su número telefonico.                                
+                                    <Alert severity="success">Está por agendar la hora, confirme su número telefonico.</Alert>
+                                                              
                             </DialogContentText>
 
                             <TextField
