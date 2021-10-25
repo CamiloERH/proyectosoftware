@@ -1,20 +1,20 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 
-import { AppBar, Tab, Tabs, Toolbar, useScrollTrigger } from '@mui/material';
+import { Button, AppBar, Tab, Tabs, Toolbar, useScrollTrigger } from '@mui/material';
 import Box from '@mui/material/Box';
-import { Button } from '@mui/material';
+
+import LogoutIcon from '@mui/icons-material/Logout';
 
 import { Link } from 'react-router-dom';
 
-import { useAuth0 } from '@auth0/auth0-react';
-import Profile from '../components/Login/Profile/Profile';
-import Logout from '../components/Login/Logout';
-import Login from '../components/Login/Login';
+//import { useAuth0 } from '@auth0/auth0-react';
+//import Profile from '../components/Login/Profile/Profile';
+//import Logout from '../components/Login/Logout';
+//import Login from '../components/Login/Login';
+
+import authContext from '../context/autenticacion/authContext';
 
 function ElevationScroll(props) {
-
-
-    
 
 
     const { children } = props;
@@ -39,18 +39,20 @@ const tabStyle = {
 
 export const Header = () => {
 
+    const { autenticado, cerrarSesion } = useContext(authContext);
+
     const [value, setValue] = useState(0);
 
     const handleChange = (e, newValue) => {
         setValue(newValue);
     }
-    const {isAuthenticated} = useAuth0();
+    // const {isAuthenticated} = useAuth0();
     
     return (
         <>
             <ElevationScroll >
                 <AppBar position="fixed">
-                    <Toolbar disableGutters sx={{marginY: 2}}>
+                    <Toolbar disableGutters sx={{marginY: 1, marginX: 2}}>
                         <Tabs 
                             value={value}
                             onChange={handleChange} 
@@ -78,9 +80,14 @@ export const Header = () => {
                                 label="Condiciones"
                                 sx={tabStyle}
                             />
+                            {autenticado ? (<Tab 
+                                component={Link} to="/agenda" 
+                                label="Mis Agendas"
+                                sx={tabStyle}
+                            />) : null}
                         </Tabs>   
 
-                        {isAuthenticated ? (
+                        {/* {isAuthenticated ? (
                         <>
                             <Profile/>
                             <Logout/>
@@ -88,10 +95,7 @@ export const Header = () => {
                         ) : (
                                 <Login name="style"/>
 
-                            )}
-
-
-
+                            )} */}
 
                         <Button 
                             component={Link} to="/schedules" 
@@ -109,6 +113,14 @@ export const Header = () => {
                         >
                             Agendar Hora
                         </Button>
+
+                        {autenticado && (<Button 
+                            onClick={() => cerrarSesion()}
+                            endIcon={<LogoutIcon/>}  
+                            sx={{ color: 'white'}}
+                        >
+                            Cerrar Sesión
+                        </Button>)}
  
                     </Toolbar>                  
                 </AppBar>

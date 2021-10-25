@@ -1,4 +1,5 @@
-import { AGENDAR_HORA, OBTENER_HORARIOS, OBTENER_SERVICIOS, SERVICIO_ACTUAL } from "../../types";
+import { AGENDAR_HORA, OBTENER_HORARIOS, OBTENER_SERVICIOS, 
+    SERVICIO_ACTUAL, OBTENER_AGENDAS } from "../../types";
 
 const horarioReducer = (state, action) => {
     switch(action.type){
@@ -21,6 +22,11 @@ const horarioReducer = (state, action) => {
             return {
                 ...state,
                 servicios: action.payload
+            }
+        case OBTENER_AGENDAS:
+            return {
+                ...state,
+                agendas: action.payload
             }
 
         default:

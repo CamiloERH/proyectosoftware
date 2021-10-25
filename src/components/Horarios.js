@@ -26,13 +26,15 @@ import { Horas } from './Horas';
 
 
 
-import { useAuth0 } from '@auth0/auth0-react';
-import Login from './Login/Login';
+//import { useAuth0 } from '@auth0/auth0-react';
+//import Login from './Login/Login';
+import authContext from '../context/autenticacion/authContext';
 
 
 export const Horarios = () => {
 
     const horarioContext  = useContext(HorarioContext);
+    const { autenticado, usuario } = useContext(authContext);
 
     const { horas, 
         servicioSeleccionado,
@@ -42,17 +44,21 @@ export const Horarios = () => {
         obtenerHorarios, 
         agendarHora } = horarioContext;
 
-    useEffect(() => {
-        obtenerServicios();
-        //eslint-disable-next-line  
-    }, []);
-
-    const [open, setOpen] = useState(false);
-
     const [form, setForm] = useState({
         idHora: "",
-        idCliente: "614fcfb969e1ed415d389054"
+        idCliente: ''
     });
+
+    useEffect(() => {
+        if(autenticado && usuario){
+            setForm({...form, idCliente: usuario._id});
+            obtenerServicios();
+        }
+        
+        //eslint-disable-next-line  
+    }, [autenticado, usuario]);
+
+    const [open, setOpen] = useState(false);
 
     const handleClickOpen = (idHora) => {
         setOpen(true);
@@ -80,16 +86,40 @@ export const Horarios = () => {
         handleClose();
     }
 
-
-
-    const {isAuthenticated} = useAuth0();
+    // const {isAuthenticated} = useAuth0();
 
 
     return (
-        <div>
-        {
-            isAuthenticated ? (
-                <>
+        <>
+        <Grid 
+            container 
+            spacing={0} 
+            direction="column"
+            justifyContent="center" 
+            alignItems="center"
+        >
+            <Grid item md={12}>
+                <Stack sx={{ marginTop: 2, width: '100%' }} spacing={2}>
+                    <Alert severity="info">
+                        Selecciona un servicio para listar las horas disponibles,
+                        luego selecciona agendar en la hora deseada.
+                        Por último se reconfirmaran tus datos.
+                    </Alert>
+                </Stack>
+            </Grid>
+        </Grid>
+            
+        <Container 
+            component={Paper} 
+            elevation={5}
+            sx={{
+                padding: 5, 
+                marginY: 5, 
+                display: 'flex', 
+                justifyContent: 'center'
+            }}
+            maxWidth="sm"
+        >
             <Grid 
                 container 
                 spacing={0} 
@@ -98,103 +128,63 @@ export const Horarios = () => {
                 alignItems="center"
             >
                 <Grid item md={12}>
-                    <Stack sx={{ marginTop: 2, width: '100%' }} spacing={2}>
-                        <Alert severity="info">
-                            Selecciona un servicio para listar las horas disponibles,
-                            luego selecciona agendar en la hora deseada.
-                            Por último se reconfirmaran tus datos.
-                        </Alert>
-                    </Stack>
+                    <FormControl component="fieldset">
+                        <FormLabel component="legend">Seleccionar Servicio: </FormLabel>
+                        <RadioGroup
+                            aria-label="servicio"
+                            name="controlled-radio-buttons-group"
+                            value={servicioSeleccionado}
+                            onChange={handleChange}
+                            row
+                        >
+                            {servicios.map((servicio) => (
+                                <FormControlLabel 
+                                    key={servicio._id}
+                                    value={servicio._id} 
+                                    control={<Radio />} 
+                                    label={servicio.nombre} 
+                                />
+                            ))}
+                        </RadioGroup>
+                        <FormLabel component="legend">Horas disponibles: </FormLabel>
+                        <List>
+                            {
+                                horas.map((hora) => 
+                                    (
+                                        <Horas
+                                            key={hora._id}
+                                            fecha={hora.fecha}
+                                            handleClickOpen={() => handleClickOpen(hora._id)}
+                                        /> 
+                                ))
+                            }
+                        </List>
+                    </FormControl>
+
+                    <Dialog open={open} onClose={handleClose}>
+                        <DialogTitle>Agendar</DialogTitle>
+                        <DialogContent>
+                        <DialogContentText>
+                            Está por agendar la hora, confirme su número telefonico.
+                        </DialogContentText>
+                        <TextField
+                            autoFocus
+                            margin="dense"
+                            label="Número"
+                            type="tel"
+                            fullWidth
+                            variant="standard"
+                        />
+                        </DialogContent>
+                        <DialogActions>
+                            <Button onClick={handleClose}>Cancelar</Button>
+                            <Button onClick={() => {handleSubmit();}}>Agendar</Button>
+                        </DialogActions>
+                    </Dialog>
                 </Grid>
             </Grid>
-                
-            <Container 
-                component={Paper} 
-                elevation={5}
-                sx={{
-                    padding: 5, 
-                    marginY: 5, 
-                    display: 'flex', 
-                    justifyContent: 'center'
-                }}
-                maxWidth="sm"
-            >
-                <Grid 
-                    container 
-                    spacing={0} 
-                    direction="column"
-                    justifyContent="center" 
-                    alignItems="center"
-                >
-                    <Grid item md={12}>
-                        <FormControl component="fieldset">
-                            <FormLabel component="legend">Seleccionar Servicio: </FormLabel>
-                            <RadioGroup
-                                aria-label="servicio"
-                                name="controlled-radio-buttons-group"
-                                value={servicioSeleccionado}
-                                onChange={handleChange}
-                                row
-                            >
-                                {servicios.map((servicio) => (
-                                    <FormControlLabel 
-                                        key={servicio._id}
-                                        value={servicio._id} 
-                                        control={<Radio />} 
-                                        label={servicio.nombre} 
-                                    />
-                                ))}
-                            </RadioGroup>
-                            <FormLabel component="legend">Horas disponibles: </FormLabel>
-                            <List>
-                                {
-                                    horas.map((hora) => 
-                                        (
-                                            <Horas
-                                                key={hora._id}
-                                                fecha={hora.fecha}
-                                                handleClickOpen={() => handleClickOpen(hora._id)}
-                                            /> 
-                                    ))
-                                }
-                            </List>
-                        </FormControl>
 
-                        <Dialog open={open} onClose={handleClose}>
-                            <DialogTitle>Agendar</DialogTitle>
-                            <DialogContent>
-                            <DialogContentText>
-                                Está por agendar la hora, confirme su número telefonico.
-                            </DialogContentText>
-                            <TextField
-                                autoFocus
-                                margin="dense"
-                                label="Número"
-                                type="tel"
-                                fullWidth
-                                variant="standard"
-                            />
-                            </DialogContent>
-                            <DialogActions>
-                                <Button onClick={handleClose}>Cancelar</Button>
-                                <Button onClick={() => {handleSubmit();}}>Agendar</Button>
-                            </DialogActions>
-                        </Dialog>
-                    </Grid>
-                </Grid>
-
-            </Container>
-        </>
-                
-            ) : (
-                <div className="container">
-                    <h1>Por favor inicie sesion o registrese</h1>
-                    <Login/>
-                    </div>
-            )
-        }
-
-        </div>
-        
+        </Container>
+        </>     
     );
 }

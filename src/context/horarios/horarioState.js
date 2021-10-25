@@ -8,14 +8,17 @@ import HorarioContext from './horarioContext';
 import { AGENDAR_HORA, 
     OBTENER_HORARIOS, 
     OBTENER_SERVICIOS, 
-    SERVICIO_ACTUAL } from '../../types';
+    SERVICIO_ACTUAL,
+    OBTENER_AGENDAS
+} from '../../types';
 
 const HorarioState = (props) => {
 
     const initialState = {
         servicioSeleccionado: null,
         servicios: [],
-        horas: [],   
+        horas: [], 
+        agendas: []  
     }
 
     //Crear dispatch y state
@@ -39,11 +42,15 @@ const HorarioState = (props) => {
     }
     
     const agendarHora = async (idHora, idCliente) => {
-        await clienteAxios.post(`api/agenda`, {idHora, idCliente});
-        dispatch({
-            type: AGENDAR_HORA,
-            payload: idHora
-        });
+        try {
+            await clienteAxios.post(`api/agenda`, {idHora, idCliente});
+            dispatch({
+                type: AGENDAR_HORA,
+                payload: idHora
+            });
+        } catch (error) {
+            console.log(error);
+        }    
     }
 
     const seleccionarServicio = (idServicio) => {
@@ -53,16 +60,31 @@ const HorarioState = (props) => {
         });
     }
 
+    const obtenerAgendas = async (idCliente) => {
+        try {
+            const resultado = await clienteAxios.get(`api/agenda?idCliente=${idCliente}`);
+
+            dispatch({
+               type: OBTENER_AGENDAS,
+               payload: resultado.data.agendas
+            });
+        } catch (error) {
+            console.log(error);
+        } 
+    }
+
     return (
         <HorarioContext.Provider
             value={{
                 horas: state.horas,
                 servicios: state.servicios,
                 servicioSeleccionado: state.servicioSeleccionado,
+                agendas: state.agendas,
                 obtenerHorarios,
                 obtenerServicios, 
                 agendarHora,
-                seleccionarServicio
+                seleccionarServicio,
+                obtenerAgendas
             }}
         >
             {props.children}
