@@ -27,7 +27,6 @@ if( token ){
 function App() {
 
   return (
-<<<<<<< HEAD
     <AlertaState>
       <AuthState>
         <HorarioState>
@@ -52,33 +51,6 @@ function App() {
         </HorarioState>
       </AuthState>
     </AlertaState>
-=======
-
-
-  
-
-    <HorarioState>
-      <BrowserRouter>
-        <Header/>
-
-        <Switch>
-          <Route exact path="/" component={() => 
-            <div className="container">
-              <p>Bienvenidoss</p>
-
-              
-          
-
-            </div>}
-          />        
-          <Route exact path="/condiciones" component={Condiciones}/>         
-          <Route exact path="/services" component={Servicios}/>
-          <Route exact path="/contact" component={() => <div>Contacto</div>}/>
-          <Route exact path="/schedules" component={() => <Horarios/> } />
-        </Switch>
-      </BrowserRouter>
-    </HorarioState>
->>>>>>> f737b006e40d3cf0c296627f28de9cab32f37062
   );
 }
 
