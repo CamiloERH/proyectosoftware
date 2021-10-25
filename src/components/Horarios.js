@@ -164,11 +164,24 @@ export const Horarios = () => {
                             <DialogTitle>Agendar</DialogTitle>
                             <DialogContent>
                             <DialogContentText>
-                                Está por agendar la hora, confirme su número telefonico.                                
+                                1-Se agenda con un previo abono del 50% el cual no es reembolsable solo en caso de informar 48 horas antes que no podrá asistir.                             
+                            </DialogContentText>
+                            <DialogContentText>
+                                Solo se aceptarán 5 minutos de retraso estando en la puerta (después de los 5 minutos la hora quedará inmediatamente cancelada sin derecho a reclamos).                          
+                            </DialogContentText>
+                            <DialogContentText>
+                                Como parte del procedimiento puede llegar a existir irritación ocular, dolor ocular, comezón en los ojos, malestar, y en casos excepcionales infección ocular.                               
+                            </DialogContentText>
+                            <DialogContentText>
+                                La persona que se realize el tratamiento debe ser mayor de edad, en caso contrario debe haber un padre o tutor que acepte todas las condiciones antes escritas.                             
+                            </DialogContentText>
+                            <DialogContentText>
+                                Para el caso de la extensiones de pestañas, se tendra que estar 180 minutos aproximadamente con los ojos cerrados durante el procedimiento. También debe estar acostada en posición reclinada.                              
                             </DialogContentText>
                             <DialogContentText>
                                 Está por agendar la hora, confirme su número telefonico.                                
                             </DialogContentText>
+
                             <TextField
                                 autoFocus
                                 margin="dense"
