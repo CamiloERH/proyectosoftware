@@ -184,7 +184,7 @@ export const Horarios = () => {
                                 
                             </DialogContentText>
                             <DialogContentText>
-                                    <Alert severity="success">Está por agendar la hora, confirme su número telefonico.</Alert>
+                                    <Alert severity="warning">Al presionar agendar, usted estará aceptando todas las condiciones descritas</Alert>
                                                               
                             </DialogContentText>
 
