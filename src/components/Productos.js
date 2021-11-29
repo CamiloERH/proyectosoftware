@@ -11,36 +11,118 @@ import { Grid } from '@mui/material';
 
 
 const Productos = (params) => {
-    const arreglo = [1,2,3,4,5,6,7,8,9,10]
-    const url = "https://ripleycl.imgix.net/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fim-prod-products-images%2Fp-cvl17052414-1-bb770391-790b-4137-b3b0-b062bef5569b.jpg?w=750&h=555&ch=Width&auto=format&cs=strip&bg=FFFFFF&q=60&trimcolor=FFFFFF&trim=color&fit=fillmax&ixlib=js-1.1.0&s=5ed107f33a8817399c5602c2a30308b3"
-    const data = "Espectacular kit de permanente de pestañas, para una eficaz ondulación de tus pestañas y un acabado maravilloso. Incluye:Líquido permanente (Rosado)"
+    const img1 = "https://i.ibb.co/y45ZWkb/1.jpg"
+    const img2 = "https://i.ibb.co/bHmWyV3/2.jpg"
+    const img3 = "https://i.ibb.co/xChX6wF/3.jpg"
+    const img4 = "https://i.ibb.co/DWHZWxY/4.jpg"
+    const title1= "Parches de hidrogel"
+    const title2 = "Adhesivo Rosse Advanced"
+    const title3 = "Adhesivo Dlux Flawless"
+    const title4 = "Lip Brushes"
+    const data1 = "Fundamentales para proteger las pestañas naturales inferiores durante la aplicacion de extensiones"
+    const data2 = "Ethyl Cianoacrilato. Secado: super rapido 0.5 a 1 segundo. Humedad: 50-70%. Temperatura 18-28 °C. Retencion: 30 días"
+    const data3 = "Adhesivo Dlux Flawless con baja emision de vapores, muy alta retencion, solo para profesionales con experiencia. Ideal para tecnicas clasicas y volumen"
+    const data4 = "Se utilizan para la aplicación de primeras, espumas limpiadoras, removedoras y productos de lifting. 50 Unidades. Color: Rosado"
+    
     return(
         <Container variant="outlined">
             <Grid container>
-                {
-                    arreglo.map((val,key)=>(
-                    
                         <Card sx={{ maxWidth: 345 }}>
-                        <CardMedia
-                            component="img"
-                            height="140"
-                            image={url}
-                            alt="green iguana"
-                        />
-                        <CardContent>
+                            <CardMedia
+                                component="img"
+                                height="440"
+                                image={img1}
+                                alt="green iguana"
+                            />
+                            <CardContent>
+                                <Typography gutterBottom variant="h5" component="div">
+                                {title1}
+                                </Typography>
+                                <Typography variant="body2" color="text.secondary">
+                                {data1}
+                                </Typography>
+                            </CardContent>
+                            <CardContent>
                             <Typography gutterBottom variant="h5" component="div">
-                            Lizard
-                            </Typography>
-                            <Typography variant="body2" color="text.secondary">
-                            {data}
-                            </Typography>
-                        </CardContent>
-                        <CardActions>
-                            <Button size="small">Ver mas</Button>
-                        </CardActions>
+                                Precio: 9.999
+                                </Typography>
+                            </CardContent>
+                            <CardActions>
+                                <Button size="small">Ver mas</Button>
+                            </CardActions>
                         </Card>
-                    ))
-                }
+                        <Card sx={{ maxWidth: 345 }}>
+                            <CardMedia
+                                component="img"
+                                height="440"
+                                image={img2}
+                                alt="green iguana"
+                            />
+                            <CardContent>
+                                <Typography gutterBottom variant="h5" component="div">
+                                {title2}
+                                </Typography>
+                                <Typography variant="body2" color="text.secondary">
+                                {data2}
+                                </Typography>
+                            </CardContent>
+                            <CardContent>
+                            <Typography gutterBottom variant="h5" component="div">
+                                Precio: 9.999
+                                </Typography>
+                            </CardContent>
+                            <CardActions>
+                                <Button size="small">Ver mas</Button>
+                            </CardActions>
+                        </Card>
+                        <Card sx={{ maxWidth: 345 }}>
+                            <CardMedia
+                                component="img"
+                                height="440"
+                                image={img3}
+                                alt="green iguana"
+                            />
+                            <CardContent>
+                                <Typography gutterBottom variant="h5" component="div">
+                                {title3}
+                                </Typography>
+                                <Typography variant="body2" color="text.secondary">
+                                {data3}
+                                </Typography>
+                            </CardContent>
+                            <CardContent>
+                            <Typography gutterBottom variant="h5" component="div">
+                                Precio: 9.999
+                                </Typography>
+                            </CardContent>
+                            <CardActions>
+                                <Button size="small">Ver mas</Button>
+                            </CardActions>
+                        </Card>
+                        <Card sx={{ maxWidth: 345 }}>
+                            <CardMedia
+                                component="img"
+                                height="440"
+                                image={img4}
+                                alt="green iguana"
+                            />
+                            <CardContent>
+                                <Typography gutterBottom variant="h5" component="div">
+                                {title4}
+                                </Typography>
+                                <Typography variant="body2" color="text.secondary">
+                                {data4}
+                                </Typography>
+                            </CardContent>
+                            <CardContent>
+                            <Typography gutterBottom variant="h5" component="div">
+                                Precio: 9.999
+                                </Typography>
+                            </CardContent>
+                            <CardActions>
+                                <Button size="small">Ver mas</Button>
+                            </CardActions>
+                        </Card>
  
             </Grid>
 

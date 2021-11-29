@@ -51,7 +51,7 @@ export const Header = () => {
     return (
         <>
             <ElevationScroll >
-                <AppBar position="fixed">
+                <AppBar position="static">
                     <Toolbar disableGutters sx={{marginY: 1, marginX: 2}}>
                         <Tabs 
                             value={value}
