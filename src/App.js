@@ -16,6 +16,8 @@ import Condiciones from './components/condiciones';
 
 import tokenAuth from './config/tokenAuth';
 import Agenda from './components/Agenda';
+import Productos from './components/Productos';
+import Contacto from './components/Contacto';
 
 const token = localStorage.getItem('token');
 
@@ -43,7 +45,8 @@ function App() {
               <Route exact path="/nueva-cuenta" component={NuevaCuenta} />          
               <Route exact path="/condiciones" component={Condiciones}/>         
               <Route exact path="/services" component={Servicios}/>
-              <Route exact path="/contact" component={() => <div>Contacto</div>}/>
+              <Route exact path="/productos" component={Productos}/>
+              <Route exact path="/contact" component={Contacto}/>
               <RutaPrivada exact path="/agenda" component={Agenda} />
               <RutaPrivada exact path="/schedules" component={Horarios} />
             </Switch>
