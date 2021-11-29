@@ -39,6 +39,10 @@ function App() {
               <Route exact path="/" component={() => 
                 <div className="container">
                   <p>Bienvenidos</p>
+
+
+
+
                 </div>}
               />
               <Route exact path="/login" component={Login} />
