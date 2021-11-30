@@ -9,7 +9,7 @@ import productosContext from './productosContext';
 
 import { MOSTRAR_PRODUCTOS } from '../../types';
 
-const ProductosState = (props) => {
+const ProductosState = () => {
 
     const initialState = {
         productos: []  
@@ -34,7 +34,7 @@ const ProductosState = (props) => {
                 obtenerProductos,  
             }}
         >
-            {props.children}
+            
         </productosContext.Provider>
     );
 }

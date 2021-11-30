@@ -77,7 +77,7 @@ export const Header = () => {
                             />
                             <Tab 
                                 component={Link} to="/products" 
-                                label="Productos2"
+                                label="Productos22"
                                 sx={tabStyle}
                             />
                             <Tab 
