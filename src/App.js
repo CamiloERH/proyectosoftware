@@ -18,7 +18,6 @@ import tokenAuth from './config/tokenAuth';
 import Agenda from './components/Agenda';
 import Productos from './components/Productos';
 import Contacto from './components/Contacto';
-import Products from './components/Products';
 
 const token = localStorage.getItem('token');
 
@@ -51,7 +50,6 @@ function App() {
               <Route exact path="/condiciones" component={Condiciones}/>         
               <Route exact path="/services" component={Servicios}/>
               <Route exact path="/productos" component={Productos}/>
-              <Route exact path="/products" component={Products}/>
               <Route exact path="/contact" component={Contacto}/>
               <RutaPrivada exact path="/agenda" component={Agenda} />
               <RutaPrivada exact path="/schedules" component={Horarios} />
