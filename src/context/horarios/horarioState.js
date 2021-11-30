@@ -34,6 +34,7 @@ const HorarioState = (props) => {
     }
 
     const obtenerHorarios = async (idServicio) => {
+        console.log("obteniendo los horarios i volas xd");
         const resultado = await clienteAxios.get(`/api/horas/${idServicio}`);
         dispatch({
             type: OBTENER_HORARIOS,
